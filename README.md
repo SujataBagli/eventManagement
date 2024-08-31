@@ -7,7 +7,8 @@ Start XAMPP
 ● Apache ● mySQL
 
 Import
-create database : eventmanagement
+
+database : eventmanagement
 
 import eventmanagement.sql 
 
