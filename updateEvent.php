@@ -5,30 +5,30 @@
     header('Access-Control-Allow-Headers: Access-Control-Allow-Headers,Access-Control-Allow-method,Content-Type,Access-Control-Allow-Origin,Authorization,x-requested-with');
 
     include 'config.php'; 
-    include 'eventClass.php';
-    $postObj = new post($conn);   
+    include 'eventClass.php';    
+    
+    if ($_SERVER["REQUEST_METHOD"] == "POST") {      
+        $postObj = new post($conn);  
 
-    //Get raw posted data
-    $data = json_decode(file_get_contents("php://input"));
-
-    // $postObj->userId  = $data->userId;
-    // $postObj->title = $data->title;
-    // $postObj->description = $data->description;
-    // $postObj->eventDate  = $data->eventDate;
-    // $postObj->eventTime  = $data->eventTime;
-    // $postObj->image  = $data->image;
-
-    $postObj->id = '3';
-    $postObj->userId  = 1;
-    $postObj->title = 'Party Day';
-    $postObj->description = 'The Party event ';
-    $postObj->eventDate  = '2024-06-08 22:20:41';
-    $postObj->eventTime  = '20:20';
-    $postObj->image  = 'Party.png';
-
-    if($postObj->updateRecord()){
-        echo json_encode(array('message' => 'Data Updated Successfully!'));
-    }else{
-        echo json_encode(array('message' => 'Data not Updated!'));
+        $vars = new stdClass();      
+        $vars->id = $_POST['id']; 
+        $vars->title = isset($_POST['title']) ? trim($_POST['title']) : "";        
+        $vars->description = isset($_POST['description']) ? $_POST['description'] : '';
+        $vars->eventDate = isset($_POST['eventDate']) ? $_POST['eventDate'] : '';
+        $vars->eventTime = isset($_POST['eventTime']) ? $_POST['eventTime'] : '';       
+        if (!empty($_FILES['image']['name'])) {
+            $targetDir = "uploads/"; // Directory where you want to save the file
+            $targetFile = $targetDir . basename($_FILES['image']['name']);
+            move_uploaded_file($_FILES['image']['tmp_name'], $targetFile);
+            $postObj->image = $targetFile;
+            $vars->image = $targetFile;
+        } else {
+            $vars->image = null; 
+        }        
+        $data = $postObj->updateRecord($vars);
+        echo  json_encode($data) ;  
+           
+        
     }
+    
 ?>

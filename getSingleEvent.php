@@ -8,22 +8,26 @@
     $postObj = new post($conn); 
 
     //$postObj->id = isset($_GET['id']) ? $_GET['id'] : die();
-    $postObj->id = 1;
+    // Get the ID from query parameters
+    $postObj->id = isset($_GET['id']) ? $_GET['id'] : die(json_encode(array('message' => 'Event ID is required')));
 
+    // Fetch the event data
     $postObj->readSingle();
-    //print_r($postObj);
+
+    $eventDate = date('Y-m-d', strtotime($postObj->eventDate));
+    // Prepare the data array
     $dataArr = array(
         'id' => $postObj->id,
         'userId' => $postObj->userId,
         'title' => $postObj->title,
         'description' => $postObj->description,
-        'eventDate' => $postObj->eventDate,
+        'eventDate' => $eventDate,
         'eventTime' => $postObj->eventTime,
         'image' => $postObj->image        
     );
-    
-    print_r($dataArr);
-    //print_r(json_encode($dataArr));//make json
+
+    // Output the data as JSON
+    echo json_encode($dataArr);
 
 
 ?>

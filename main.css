@@ -5,10 +5,50 @@ h1 {
     justify-content: flex-end;
 }
 .navbar {
-    height: 80px; /* Change this value to adjust the height */
+    height: 80px; 
 }
 
 /* Align items vertically in the middle */
 .navbar-brand, .navbar-nav .nav-link {
-    line-height: 80px; /* Match this to the height of the navbar */
+    line-height: 80px; 
+}
+.card-body list{
+    display: flex;
+    padding: 0; 
+    overflow: hidden;
+}
+
+.text-content {
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.8); 
+}
+
+.image-content {
+    background-size: cover;
+    background-position: center;
+    opacity: 0.8; 
+   
+}
+
+.edit-icon {
+    background: none;
+    border: none;
+    color: #000;
+    cursor: pointer;
+    opacity: 0.8;
+}
+
+.edit-icon:hover {
+    opacity: 1;
+}
+.edit-icon, .delete-icon {
+    background: none;
+    border: none;
+    color: #000;
+    cursor: pointer;
+    opacity: 0.8;
+}
+
+.edit-icon:hover, .delete-icon:hover {
+    opacity: 1;
 }
