@@ -13,7 +13,7 @@ database : eventmanagement
 ## import eventmanagement.sql 
 
 Clone this repository under htdocs folder of XAMPP
-$ git clone https://github.com/SujataBagli/eventManagement.git
+- **$ git clone https://github.com/SujataBagli/eventManagement.git**  
 
 ## Login url
 http://localhost/eventManagement/login.php
