@@ -21,11 +21,11 @@ http://localhost/eventManagement/login.php
 In tbl_user if type value is ADM then that user will get access to edit and delete th event
 
 ## Login Credentials
-ADM user
-username - GB
-password  - GB@12345
+**ADM User**  
+- **Username:** `GB`  
+- **Password:** `GB@12345`
 
-GEN user
-username - SB
-password  - SB@12345
+**GEN User**  
+- **Username:** `SB`  
+- **Password:** `SB@12345`
 
