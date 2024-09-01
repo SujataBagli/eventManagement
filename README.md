@@ -1,21 +1,31 @@
 # eventManagement
 
-Install
+## Install
 XAMPP : https://www.apachefriends.org/download.html Postman : https://www.postman.com/downloads/
 
-Start XAMPP
+## Start XAMPP
 ● Apache ● mySQL
 
-Import
+## Import
 
 database : eventmanagement
 
-import eventmanagement.sql 
+## import eventmanagement.sql 
 
 Clone this repository under htdocs folder of XAMPP
 $ git clone https://github.com/SujataBagli/eventManagement.git
 
-Login
+## Login url
 http://localhost/eventManagement/login.php
 
 In tbl_user if type value is ADM then that user will get access to edit and delete th event
+
+## Login Credentials
+ADM user
+username - GB
+password  - GB@12345
+
+GEN user
+username - SB
+password  - SB@12345
+
